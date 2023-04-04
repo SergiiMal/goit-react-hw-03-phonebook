@@ -22,7 +22,6 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { contacts } = this.state;
-
     if (contacts !== prevState.contacts) {
       localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
     }
@@ -30,6 +29,7 @@ class App extends Component {
 
   componentDidMount() {
     const contact = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+
     if (contact) {
       this.setState({ contacts: contact });
     }
